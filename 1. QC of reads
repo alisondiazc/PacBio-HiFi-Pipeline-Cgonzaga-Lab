@@ -7,10 +7,9 @@ cp /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYH007/Cell-3/m54336U_220420_105
 #Unir los reads en un mismo archivo 
 cat *.fastq.gz > PYM007_reads.fastq.gz 
 
-#Crear carpetas para QC 
+#Crear carpetas para QC
 mkdir 1.QC
 cd 1.QC 
 mkdir LongQC
 mkdir FastQC 
 
-#
