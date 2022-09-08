@@ -33,3 +33,6 @@ cd 2.ReadsTrimming
 ln -s /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/reads/PYM007_reads.fastq.gz .
 module load hifiadapterfilt/2.0.0
 pbadapterfilt.sh -p ./ -l 44 -m 97 -t 60 -o . 
+
+#Ensamble de novo
+#Ensamble 
