@@ -42,6 +42,8 @@ module load hifiasm/0.16.1
 hifiasm -o PYM007_Hifiasm_denovo.asm --primary -t 8 -f 37 PYH007_reads.fastq.gz
 
 #Analisis de resultados - Ensamble de novo
+##assembly-stats
+##Inspector
 
 #Pileup Ensamble de novo 
 
@@ -56,4 +58,5 @@ hifiasm -o PYM007_Hifiasm_denovo.asm --primary -t 8 -f 37 PYH007_reads.fastq.gz
 #Analisis de resultados - T2T 
 
 #Pileup - T2T
+
 
