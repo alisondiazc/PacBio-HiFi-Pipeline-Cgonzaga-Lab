@@ -41,7 +41,7 @@ pbadapterfilt.sh -p ./ -l 44 -m 97 -t 60 -o Hifiadapterfilt_PYM007
 module load hifiasm/0.16.1
 hifiasm -o PYM007_Hifiasm_denovo.asm --primary -t 8 -f 37 PYH007_reads.fastq.gz
 
-#GRCh38 assembly 
+#GRCh38 assembly - Minimap2 
 module load minimap2/2.17
 minimap2 -ax map-hifi -t 8 Homo_sapiens_GRCh38.p14.noMT.fasta PYH007_reads.fastq.gz > PYM007_38.mm2.sam
 samtools sort -l9 -o PYM007_38.mm2.sort.bam -@ 60 PYM007_38.mm2.sam
@@ -53,3 +53,10 @@ samtools fasta PYM007_38.mm2.sort.bam > PYM007_38.mm2.sort.fasta
 ## Obtain assembly statistics of fasta
 module load assembly-stats/1.0.1
 assembly-stats PYM007_38.mm2.sort.fasta
+
+
+---------------------------
+
+#GRCh38 assembly - pbmm2 
+module load miniconda/4.3.1
+pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.chr.fasta PYH007_reads.fastq.gz PYM007.GRCh38.pbmm2.bam
