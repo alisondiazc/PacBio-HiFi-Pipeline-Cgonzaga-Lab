@@ -1,8 +1,12 @@
-# Ensamble con pbmm2
+#Crear carpeta
 mkdir 4.GRCh38Assembly
 cd 4.GRCh38Assembly
+
+#Crear links a los reads y la referencia
 ln -s /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/2.ReadsTrimming/Hifiadapterfilt_PYM007/PYM007_reads.filt.fastq.gz
 ln -s /mnt/Timina/cgonzaga/resources/GRCh38.14/Homo_sapiens_GRCh38.p14.noMT.fasta .
+
+# Ensamble con pbmm2
 module load miniconda/4.3.1
 pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.noMT.fasta PYM007_reads.filt.fastq.gz PYM007.GRCh38.pbmm2.bam
 
@@ -14,7 +18,7 @@ samtools fasta PYM007.GRCh38.pbmm2.bam > PYM007.GRCh38.pbmm2.fasta
 module load assembly-stats/1.0.1
 assembly-stats PYM007.GRCh38.pbmm2.fasta > PYM007.GRCh38.pbmm2.assemblystats
 
-#Consensus of pbmm2 bam 
+#Consenso del pbmm2 bam 
 module load samtools/1.10
 samtools consensus -f fasta -o PYM007.GRCh38.pbmm2.cons.fa -a PYM007.GRCh38.pbmm2.bam
 
