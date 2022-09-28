@@ -19,7 +19,7 @@ module load assembly-stats/1.0.1
 assembly-stats PYM007.GRCh38.pbmm2.fasta > PYM007.GRCh38.pbmm2.assemblystats
 
 #Consenso del pbmm2 bam 
-module load samtools/1.10
+module load samtools/1.16.1 
 samtools consensus -f fasta -o PYM007.GRCh38.pbmm2.cons.fa -a PYM007.GRCh38.pbmm2.bam
 
 # Analisis de consensus con assembly-stats
