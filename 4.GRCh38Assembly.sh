@@ -26,6 +26,15 @@ samtools consensus -f fasta -o PYM007.GRCh38.pbmm2.cons.fa -a PYM007.GRCh38.pbmm
 module load assembly-stats/1.0.1
 assembly-stats PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.pbmm2.cons.assemblystats
 
+#Analisis consensus mediante QUAST 
+module load quast/5.2.0
+quast.py PYM007.GRCh38.pbmm2.cons.fa -r Homo_sapiens_GRCh38.p14.noMT.fasta --pacbio PYM007_reads.filt.fastq.gz -o QUAST_GRCh38 --large -t 60 --circos
+
 #Mapear ensamble consenso contra la referencia
 module load miniconda/4.3.1
 pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.noMT.fasta PYM007_reads.filt.fastq.gz PYM007.GRCh38.pbmm2.bam
+
+#Ver contigs que mapean con buena calidad 
+samtools view -c -q60 PYM007.GRCh38.cons.mm2.bam
+
+
