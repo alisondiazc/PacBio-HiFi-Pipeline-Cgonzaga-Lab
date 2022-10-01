@@ -25,3 +25,7 @@ samtools consensus -f fasta -o PYM007.GRCh38.pbmm2.cons.fa -a PYM007.GRCh38.pbmm
 # Analisis de consensus con assembly-stats
 module load assembly-stats/1.0.1
 assembly-stats PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.pbmm2.cons.assemblystats
+
+#Mapear ensamble consenso contra la referencia
+module load miniconda/4.3.1
+pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.noMT.fasta PYM007_reads.filt.fastq.gz PYM007.GRCh38.pbmm2.bam
