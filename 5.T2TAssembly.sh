@@ -19,9 +19,14 @@ module load assembly-stats/1.0.1
 assembly-stats PYM007.T2T.pbmm2.fasta > PYM007.T2T.pbmm2.assemblystats
 
 #Consensus of pbmm2 bam 
-module load samtools/1.10
+module load samtools/1.16.1
 samtools consensus -f fasta -o PYM007.T2T.pbmm2.cons.fa -a PYM007.T2T.pbmm2.bam
 
 # Analisis de consensus con assembly-stats
 module load assembly-stats/1.0.1
 assembly-stats PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.pbmm2.cons.assemblystats
+
+#Alinear consenso contra GRCh38
+module load minimap2/2.24
+module load samtools/1.16.1
+minimap2 -ax asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.fasta PYM007.GRCh38.pbmm2.cons.fa | samtools sort -o PYM007.GRCh38.cons.mm2.bam
