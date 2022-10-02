@@ -31,8 +31,10 @@ module load quast/5.2.0
 quast.py PYM007.GRCh38.pbmm2.cons.fa -r Homo_sapiens_GRCh38.p14.noMT.fasta --pacbio PYM007_reads.filt.fastq.gz -o QUAST_GRCh38 --large -t 60 --circos
 
 #Mapear ensamble consenso contra la referencia
-module load miniconda/4.3.1
-pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.noMT.fasta PYM007_reads.filt.fastq.gz PYM007.GRCh38.pbmm2.bam
+module load minimap2/2.24
+module load samtools/1.16.1
+minimap2 -ax asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.fasta PYM007.GRCh38.pbmm2.cons.fa | samtools sort -o PYM007.GRCh38.cons.mm2.bam
+samtools index -o PYM007.GRCh38.cons.mm2.bai -@ 20 PYM007.GRCh38.cons.mm2.bam
 
 #Ver contigs que mapean con buena calidad 
 samtools view -c -q60 PYM007.GRCh38.cons.mm2.bam
