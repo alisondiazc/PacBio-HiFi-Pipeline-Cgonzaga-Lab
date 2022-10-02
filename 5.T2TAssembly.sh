@@ -6,7 +6,7 @@ cd 5.T2TAssembly
 ln -s /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/2.ReadsTrimming/Hifiadapterfilt_PYM007/PYM007_reads.filt.fastq.gz .
 ln -s /mnt/Timina/cgonzaga/resources/T2T_2.0/chm13v2.0.noMT.fa .
 
-# Ensamble con pbmm2
+# Ensamble con pbmm2 -- Voy aqui
 module load miniconda/4.3.1
 pbmm2 align --sort -j 80 --preset HIFI --log-level INFO chm13v2.0.noMT.fa PYM007_reads.filt.fastq.gz PYM007.T2T.pbmm2.bam
 
