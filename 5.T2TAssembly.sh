@@ -30,3 +30,4 @@ assembly-stats PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.pbmm2.cons.assemblystats
 module load minimap2/2.24
 module load samtools/1.16.1
 minimap2 -ax asm5 -L --secondary=no -t 60 chm13v2.0.noMT.fa PYM007.T2T.pbmm2.cons.fa | samtools sort -o PYM007.T2T.cons.mm2.bam
+samtools index -o PYM007.T2T.cons.mm2.bai -@ 20 PYM007.T2T.cons.mm2.bam
