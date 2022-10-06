@@ -14,27 +14,31 @@ pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.
 module load samtools/1.10
 samtools fasta PYM007.GRCh38.pbmm2.bam > PYM007.GRCh38.pbmm2.fasta
 
-# Analisis con assembly-stats
+# Estadísticas generales con assembly-stats
 module load assembly-stats/1.0.1
 assembly-stats PYM007.GRCh38.pbmm2.fasta > PYM007.GRCh38.pbmm2.assemblystats
 
-#Consenso del pbmm2 bam 
+# ****** Análisis de aligned coverage depth con mosdepth 
+...
+
+
+# Consenso del pbmm2 bam 
 module load samtools/1.16.1 
 samtools consensus -f fasta -o PYM007.GRCh38.pbmm2.cons.fa -a PYM007.GRCh38.pbmm2.bam
 
-# Analisis de consensus con assembly-stats
+# Estadísticas generales de consensus con assembly-stats
 module load assembly-stats/1.0.1
 assembly-stats PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.pbmm2.cons.assemblystats
 
-#Analisis consensus mediante QUAST 
-module load quast/5.2.0
-quast.py PYM007.GRCh38.pbmm2.cons.fa -r Homo_sapiens_GRCh38.p14.noMT.fasta --pacbio PYM007_reads.filt.fastq.gz -o QUAST_GRCh38 --large -t 60 --circos
-
-#Mapear ensamble consenso contra la referencia
+# Mapear ensamble consenso contra la referencia
 module load minimap2/2.24
-module load samtools/1.16.1
-minimap2 -ax asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.fasta PYM007.GRCh38.pbmm2.cons.fa | samtools sort -o PYM007.GRCh38.cons.mm2.bam
-samtools index -o PYM007.GRCh38.cons.mm2.bai -@ 20 PYM007.GRCh38.cons.mm2.bam
+minimap2 -ax asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.fasta PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.cons.mm2.paf
+
+# ****** Dot plot
+
+...
+
+----------------------------------------------
 
 #Ver contigs que mapean con buena calidad 
 samtools view -c -q60 PYM007.GRCh38.cons.mm2.bam
