@@ -19,7 +19,8 @@ module load assembly-stats/1.0.1
 assembly-stats PYM007.T2T.pbmm2.fasta > PYM007.T2T.pbmm2.assemblystats
 
 # ****** Análisis de aligned coverage depth con mosdepth 
-...
+module load mosdepth/0.3.3 
+mosdepth -t 60 -n  PYM007.T2T.pbmm2 PYM007.T2T.pbmm2.bam
 
 # Consenso del pbmm2 bam 
 module load samtools/1.16.1
