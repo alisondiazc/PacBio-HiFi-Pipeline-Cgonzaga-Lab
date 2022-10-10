@@ -36,8 +36,7 @@ module load minimap2/2.24
 minimap2 -ax asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.fasta PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.cons.mm2.paf
 
 # ****** Dot plot
-./pafCoordsDotPlotly.R -i PYM007.GRCh38.cons.mm2.paf -o PYM007.GRCh38 -s -t -l
-...
+pafCoordsDotPlotly.R -i PYM007.GRCh38.cons.mm2.paf -o PYM007.GRCh38 -s -t -l -x
 
 ----------------------------------------------
 
