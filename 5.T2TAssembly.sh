@@ -36,5 +36,5 @@ module load minimap2/2.24
 minimap2 -ax asm5 -L --secondary=no -t 60 chm13v2.0.noMT.fa PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.cons.mm2.paf
 
 # ****** Dot plot
-...
+pafCoordsDotPlotly.R -i PYM007.GRCh38.cons.mm2.paf -o PYM007.GRCh38 -s -t -l -x
 
