@@ -18,10 +18,13 @@ samtools fasta PYM007.T2T.pbmm2.bam > PYM007.T2T.pbmm2.fasta
 module load assembly-stats/1.0.1
 assembly-stats PYM007.T2T.pbmm2.fasta > PYM007.T2T.pbmm2.assemblystats
 
-# ****** Análisis de aligned coverage depth con mosdepth 
+# Análisis de aligned coverage depth con mosdepth 
 module load mosdepth/0.3.3 
 mosdepth -t 60 -n  PYM007.T2T.pbmm2 PYM007.T2T.pbmm2.bam
-python plot-dist.py \*global.dist.txt
+
+module load python38/3.8.3
+chmod 777 plot-dist.py
+python ./plot-dist.py PYM007.T2T.pbmm2.mosdepth.global.dist.txt
 
 # Consenso del pbmm2 bam 
 module load samtools/1.16.1
@@ -31,10 +34,10 @@ samtools consensus -f fasta -o PYM007.T2T.pbmm2.cons.fa -a PYM007.T2T.pbmm2.bam
 module load assembly-stats/1.0.1
 assembly-stats PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.pbmm2.cons.assemblystats
 
-# ****** Mapear ensamble consenso contra la referencia
+# Mapear ensamble consenso contra la referencia
 module load minimap2/2.24
-minimap2 -ax asm5 -L --secondary=no -t 60 chm13v2.0.noMT.fa PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.cons.mm2.paf
+minimap2 -x asm5 -L --secondary=no -t 60 chm13v2.0.noMT.fa PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.cons.mm2.paf
 
-# ****** Dot plot
-pafCoordsDotPlotly.R -i PYM007.GRCh38.cons.mm2.paf -o PYM007.GRCh38 -s -t -l -x
+# Dot plot
+pafCoordsDotPlotly.R -i PYM007.T2T.cons.mm2.paf -o PYM007.T2T -s -t -l -x
 
