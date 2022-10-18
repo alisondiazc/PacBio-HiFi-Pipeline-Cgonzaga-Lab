@@ -23,4 +23,6 @@ docker://google/deepvariant:1.4.0 \
 
 #Estadísticas básicas de VCF 
 module load bcftools/1.10.2
-bcftools stats PYM007_T2T_deepvariant.vcf.gz > PYM007_T2T_vcfstats
+module load python38/3.8.3
+bcftools stats PYM007_T2T_deepvariant.vcf.gz > PYM007_T2T_vcfstats.vchk
+plot-vcfstats -p vcfstatsT2T PYM007_T2T_vcfstats.vchk
