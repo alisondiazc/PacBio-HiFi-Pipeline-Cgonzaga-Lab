@@ -23,4 +23,4 @@ docker://google/deepvariant:1.4.0 \
 
 #Estad[isticas básicas de VCF 
 module load bcftools/1.10.2
-bcftools stats PYM007_GRCh38_deepvariant.vcf.gz
+bcftools stats PYM007_GRCh38_deepvariant.vcf.gz > PYM007_GRCh38_vcfstats
