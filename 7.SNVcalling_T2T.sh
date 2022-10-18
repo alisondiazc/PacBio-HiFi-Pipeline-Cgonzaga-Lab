@@ -20,3 +20,7 @@ docker://google/deepvariant:1.4.0 \
 --reads /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/7.SNVcallingT2T/PYM007.T2T.pbmm2.bam \
 --output_vcf /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/7.SNVcallingT2T/PYM007_T2T_deepvariant.vcf.gz \
 --num_shards 40
+
+#Estadísticas básicas de VCF 
+module load bcftools/1.10.2
+bcftools stats PYM007_T2T_deepvariant.vcf.gz > PYM007_T2T_vcfstats
