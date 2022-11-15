@@ -50,8 +50,9 @@ module load samtools/1.16.1
 bash leviosam2.sh \
     -a minimap2 -g 1000 -H 100 -S -x /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/pacbio_all.yaml \
     -l map-hifi \
-    -i PYM007.T2T.pbmm2.bam \
-    -o PYM007.T2T.pbmm2.lifted \
-    -f Homo_sapiens_GRCh38.p14.noMT.fasta \
-    -C chm13_2.0_to_GRCh38.clft \
+    -x /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/pacbio_all.yaml \
+    -i /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/PYM007.T2T.pbmm2.bam \
+    -o PYM007_T2TtoGRCh38_lifted \
+    -f /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/Homo_sapiens_GRCh38.p14.noMT.fasta \
+    -C /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/chm13_2.0_to_GRCh38.clft \
     -t 20
