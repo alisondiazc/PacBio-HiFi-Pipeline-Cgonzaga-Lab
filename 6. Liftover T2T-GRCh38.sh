@@ -56,3 +56,13 @@ bash leviosam2.sh \
     -f /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/Homo_sapiens_GRCh38.p14.noMT.fasta \
     -C /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/chm13_2.0_to_GRCh38.clft \
     -t 20
+
+leviosam2 \
+    -a minimap2 -g 1000 -H 100 -S -x /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/pacbio_all.yaml \
+    -l map-hifi \
+    -x /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/pacbio_all.yaml \
+    -i /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/PYM007.T2T.pbmm2.bam \
+    -o PYM007_T2TtoGRCh38_lifted \
+    -f /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/Homo_sapiens_GRCh38.p14.noMT.fasta \
+    -C /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/chm13_2.0_to_GRCh38.clft \
+    -t 20
