@@ -37,26 +37,23 @@ sed -i 's/CM000684.2/chr22/g' Homo_sapiens_GRCh38.p14.noMT.fasta
 sed -i 's/CM000685.2/chrX/g' Homo_sapiens_GRCh38.p14.noMT.fasta
 sed -i 's/CM000686.2/chrY/g' Homo_sapiens_GRCh38.p14.noMT.fasta
 
+#Obtener archivos de ejecución para leviosam
+wget https://github.com/milkschen/leviosam2/blob/main/configs/pacbio_all.yaml
+wget https://github.com/milkschen/leviosam2/blob/main/workflow/leviosam2.sh 
+
 #Crear index 
 module load anaconda3/2021.05
-source activate leviosam2
-leviosam2 index -c chm13v2-hg38.over.chain.gz -p chm13_2.0_to_GRCh38 -F Homo_sapiens_GRCh38.p14.noMT.fasta.fai
-
-leviosam2 index -c chm13v2-hg38.over.chain -F Homo_sapiens_GRCh38.p14.noMT.fasta.fai -p chm13v2-hg38.leviosam2
-
-#Liftover T2T a GRCh38 
-wget https://github.com/milkschen/leviosam2/blob/main/configs/pacbio_all.yaml
-wget https://github.com/milkschen/leviosam2/blob/main/workflow/leviosam2.sh
 module load minimap2/2.24
 module load samtools/1.16.1
-conda deactivate 
+source activate leviosam2
+leviosam2 index -c chm13v2-hg38.chain -p chm13v2-hg38 -F Homo_sapiens_GRCh38.p14.noMT.fasta.fai
 bash leviosam2.sh \
-    -a minimap2 -S -g 1000 -H 100 -x /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/pacbio_all.yaml \
+    -a minimap2 -g 1000 -H 100 -S -x /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/pacbio_all.yaml \
     -l map-hifi \
     -i /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/PYM007.T2T.pbmm2.bam \
     -o PYM007_T2TtoGRCh38_lifted \
     -f /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/Homo_sapiens_GRCh38.p14.noMT.fasta \
-    -C /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/chm13v2-hg38.leviosam2.clft \
+    -C /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/8.Liftover/chm13v2-hg38.clft \
     -t 20
 
 leviosam2 lift -C chm13v2-hg38.leviosam2.clft -a PYM007.T2T.pbmm2.bam -t 32 -m -f Homo_sapiens_GRCh38.p14.noMT.fasta -S 30 -S 100 -x pacbio_all.yaml
