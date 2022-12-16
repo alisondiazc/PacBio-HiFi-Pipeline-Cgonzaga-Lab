@@ -13,9 +13,9 @@ GSAlign -r PYM007.GRCh38.pbmm2.cons.fa -q PYM007.T2T.pbmm2.cons.fa -o PYM007_GRC
 #Comparar GRCh38 vs de novo
 module load gsalign/29nov22
 module load gnuplot/5.2.6
-GSAlign -r PYM007.GRCh38.pbmm2.cons.fa -q PYM007_hifiasm_denovo.fa -o PYM007_GRCh38vsT2T -t 20
+GSAlign -r PYM007.GRCh38.pbmm2.cons.fa -q PYM007_hifiasm_denovo.fa -o PYM007_GRCh38vsDenovo -t 20
 
 #Comparar T2T vs de novo
 module load gsalign/29nov22
 module load gnuplot/5.2.6
-GSAlign -r PYM007.T2T.pbmm2.cons.fa -q PYM007_hifiasm_denovo.fa -o PYM007_GRCh38vsT2T -t 20
+GSAlign -r PYM007.T2T.pbmm2.cons.fa -q PYM007_hifiasm_denovo.fa -o PYM007_T2TvsDenovo -t 20
