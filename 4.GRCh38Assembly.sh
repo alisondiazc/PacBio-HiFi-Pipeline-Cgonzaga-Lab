@@ -4,19 +4,11 @@ cd 4.GRCh38Assembly
 
 #Crear links a los reads y la referencia
 ln -s /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/2.ReadsTrimming/Hifiadapterfilt_PYM007/PYM007_reads.filt.fastq.gz
-ln -s /mnt/Timina/cgonzaga/resources/GRCh38.14/Homo_sapiens_GRCh38.p14.noMT.fasta .
+#Se debe mover el genoma de referencia tambien 
 
 # Ensamble con pbmm2
 module load miniconda/4.3.1
-pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.noMT.fasta PYM007_reads.filt.fastq.gz PYM007.GRCh38.pbmm2.bam
-
-# Conversión de bam a fasta 
-module load samtools/1.10
-samtools fasta PYM007.GRCh38.pbmm2.bam > PYM007.GRCh38.pbmm2.fasta
-
-# Estadísticas generales con assembly-stats
-module load assembly-stats/1.0.1
-assembly-stats PYM007.GRCh38.pbmm2.fasta > PYM007.GRCh38.pbmm2.assemblystats
+pbmm2 align --sort -j 80 --preset HIFI --log-level INFO Homo_sapiens_GRCh38.p14.noMT.names.fasta PYM007_reads.filt.fastq.gz PYM007.GRCh38.pbmm2.bam
 
 # ****** Análisis de aligned coverage depth con mosdepth 
 module load mosdepth/0.3.3 
