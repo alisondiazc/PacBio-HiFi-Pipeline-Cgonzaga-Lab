@@ -57,3 +57,8 @@ bash leviosam2.sh \
     -t 20
 
 leviosam2 lift -C chm13v2-hg38.leviosam2.clft -a PYM007.T2T.pbmm2.bam -t 32 -m -f Homo_sapiens_GRCh38.p14.noMT.fasta -S 30 -S 100 -x pacbio_all.yaml
+
+#### Liftover con UCSC liftOver
+module load 
+liftOver PYM007.T2T.pbmm2.bam chm13v2-hg38.over.chain.gz PYM007_T2TtoGRCh38_lifted.bam unmapped
+
