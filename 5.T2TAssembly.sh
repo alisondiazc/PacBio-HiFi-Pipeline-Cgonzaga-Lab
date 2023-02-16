@@ -8,7 +8,7 @@ ln -s /mnt/Timina/cgonzaga/resources/T2T_2.0/chm13v2.0.noMT.fa .
 
 # Ensamble con pbmm2
 module load miniconda/4.3.1
-pbmm2 align --sort -j 80 --preset HIFI --log-level INFO chm13v2.0.noMT.fa PYM007_reads.filt.fastq.gz PYM007.T2T.pbmm2.bam
+pbmm2 align --sort -j 80 --preset HIFI --log-level INFO chm13v2.0.noMT.names.fa PYM007_reads.filt.fastq.gz PYM007.T2T.pbmm2.bam
 
 # Conversión de bam a fasta 
 module load samtools/1.10
