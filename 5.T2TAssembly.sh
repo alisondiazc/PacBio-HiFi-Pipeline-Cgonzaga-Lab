@@ -36,7 +36,7 @@ assembly-stats PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.pbmm2.cons.assemblystats
 
 # Mapear ensamble consenso contra la referencia
 module load minimap2/2.24
-minimap2 -x asm5 -L --secondary=no -t 60 chm13v2.0.noMT.fa PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.cons.mm2.paf
+minimap2 -x asm5 -L --secondary=no -t 60 chm13v2.0.noMT.names.fa PYM007.T2T.pbmm2.cons.fa > PYM007.T2T.cons.mm2.paf
 
 # Dot plot
 module load r/4.0.2
