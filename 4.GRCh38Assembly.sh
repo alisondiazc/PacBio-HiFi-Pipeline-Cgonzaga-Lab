@@ -28,7 +28,7 @@ assembly-stats PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.pbmm2.cons.assemblyst
 
 # Mapear ensamble consenso contra la referencia
 module load minimap2/2.24
-minimap2 -x asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.fasta PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.cons.mm2.paf
+minimap2 -x asm5 -L --secondary=no -t 60 Homo_sapiens_GRCh38.p14.noMT.names.fasta PYM007.GRCh38.pbmm2.cons.fa > PYM007.GRCh38.cons.mm2.paf
 
 # ****** Dot plot
 module load r/4.0.2
