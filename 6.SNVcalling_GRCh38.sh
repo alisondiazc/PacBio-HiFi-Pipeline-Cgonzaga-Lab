@@ -21,6 +21,6 @@ docker://google/deepvariant:1.4.0 \
 --output_vcf /mnt/Timina/cgonzaga/adiaz/PacBio_secuencias/PYM007/6.SNVcalling38/PYM007_GRCh38_deepvariant.vcf.gz \
 --num_shards 40
 
-#Estad[isticas básicas de VCF 
+#Estadisticas básicas de VCF 
 module load bcftools/1.10.2
 bcftools stats PYM007_GRCh38_deepvariant.vcf.gz > PYM007_GRCh38_vcfstats
