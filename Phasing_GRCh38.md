@@ -17,10 +17,10 @@ whatshap stats PYM007_GRCh38_deepvariant.pha.vcf
 ### Indexar el archivo faseado 
 ```bash
 module load bcftools/1.10.2 
-bcftools index -t Phased_vcf.vcf.gz
+bcftools index -t PYM007_GRCh38_deepvariant.pha.vcf
 ``` 
 
 ### Agregar etiquetas 
 ```bash
-whatshap haplotag -o Phased.bam --reference 
+whatshap haplotag -o PYM007.GRCh38.pbmm2.pha.bam --reference Homo_sapiens_GRCh38.p14.noMT.names.fasta PYM007_GRCh38_deepvariant.pha.vcf.gz PYM007.GRCh38.pbmm2.bam 
 ```
