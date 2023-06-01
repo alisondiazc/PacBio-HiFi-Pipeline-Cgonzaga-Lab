@@ -26,3 +26,15 @@ pbsv discover PYM007.GRCh38.pbmm2.bam PYM007.GRCh38.svsig.gz --tandem-repeats GR
 ```bash
 pbsv call --ccs Homo_sapiens_GRCh38.p14.noMT.names.fasta PYM007.GRCh38.svsig.gz PYM007.GRCh38.SV.pbsv.vcf
 ```
+
+## SV calling with svim-asm
+### Loading of modules
+```bash
+module load miniconda/4.3.1
+source activate svimasm_env
+```
+### Calling Variants
+```bash
+svim-asm haploid ./ PYM007.GRCh38.pbmm2.bam Homo_sapiens_GRCh38.p14.noMT.names.fasta
+```
+
