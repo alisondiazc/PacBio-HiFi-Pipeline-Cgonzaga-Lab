@@ -38,3 +38,8 @@ minimap2 -x asm5 -L --secondary=no -t 60 PYM007.T2T.pbmm2.cons.fa PYM007_hifiasm
 
 module load r/4.0.2
 ./pafCoordsDotPlotly.R -i PYM007.T2TvsDenovo.mm2.paf -o PYM007.T2TvsDenovo -s -t -l -x
+
+
+DNAdiff 
+module load mummer/3.23
+dnadiff 
