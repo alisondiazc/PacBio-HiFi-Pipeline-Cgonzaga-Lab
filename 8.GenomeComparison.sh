@@ -1,3 +1,9 @@
+# 8. Comparison between the otained assemblied genomes
+***
+
+
+
+
 #Preparar carpeta y archivos 
 mkdir 9.vsAssemblies
 cd 9.vsAssemblies 
